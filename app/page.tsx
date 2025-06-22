@@ -1,27 +1,34 @@
-"use client"
+"use client";
 
-import { useEffect } from "react"
-import Link from "next/link"
-import { ArrowRight, ShoppingBag, Truck, Shield, Headphones } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { ProductCard } from "@/components/product-card"
-import { useEcommerceStore } from "@/lib/store"
+import HeroSection from "@/components/HeroSection";
+import { ProductCard } from "@/components/product-card";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { useEcommerceStore } from "@/lib/store";
+import {
+  ArrowRight,
+  Headphones,
+  Shield,
+  ShoppingBag,
+  Truck,
+} from "lucide-react";
+import Link from "next/link";
+import { useEffect } from "react";
 
 export default function HomePage() {
-  const { products, initializeData } = useEcommerceStore()
+  const { products, initializeData } = useEcommerceStore();
 
   useEffect(() => {
-    initializeData()
-  }, [initializeData])
+    initializeData();
+  }, [initializeData]);
 
-  const featuredProducts = products.slice(0, 4)
+  const featuredProducts = products.slice(0, 4);
 
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-r from-primary/10 to-primary/5 py-20">
-        <div className="container mx-auto px-4">
+      <section className="relative">
+        {/* <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Welcome to <span className="text-primary">EcomStore</span>
@@ -43,7 +50,8 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
-        </div>
+        </div> */}
+        <HeroSection />
       </section>
 
       {/* Features Section */}
@@ -56,7 +64,9 @@ export default function HomePage() {
                   <Truck className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="font-semibold mb-2">Free Shipping</h3>
-                <p className="text-sm text-muted-foreground">Free shipping on orders over $50</p>
+                <p className="text-sm text-muted-foreground">
+                  Free shipping on orders over $50
+                </p>
               </CardContent>
             </Card>
 
@@ -66,7 +76,9 @@ export default function HomePage() {
                   <Shield className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="font-semibold mb-2">Secure Payment</h3>
-                <p className="text-sm text-muted-foreground">100% secure payment processing</p>
+                <p className="text-sm text-muted-foreground">
+                  100% secure payment processing
+                </p>
               </CardContent>
             </Card>
 
@@ -76,7 +88,9 @@ export default function HomePage() {
                   <ShoppingBag className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="font-semibold mb-2">Easy Returns</h3>
-                <p className="text-sm text-muted-foreground">30-day hassle-free returns</p>
+                <p className="text-sm text-muted-foreground">
+                  30-day hassle-free returns
+                </p>
               </CardContent>
             </Card>
 
@@ -86,7 +100,9 @@ export default function HomePage() {
                   <Headphones className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="font-semibold mb-2">24/7 Support</h3>
-                <p className="text-sm text-muted-foreground">Round-the-clock customer support</p>
+                <p className="text-sm text-muted-foreground">
+                  Round-the-clock customer support
+                </p>
               </CardContent>
             </Card>
           </div>
@@ -99,7 +115,8 @@ export default function HomePage() {
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold mb-4">Featured Products</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Check out our most popular products, carefully selected for quality and value.
+              Check out our most popular products, carefully selected for
+              quality and value.
             </p>
           </div>
 
@@ -125,8 +142,8 @@ export default function HomePage() {
         <div className="container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
           <p className="text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-            Subscribe to our newsletter and be the first to know about new products, special offers, and exclusive
-            deals.
+            Subscribe to our newsletter and be the first to know about new
+            products, special offers, and exclusive deals.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
             <input
@@ -139,5 +156,5 @@ export default function HomePage() {
         </div>
       </section>
     </div>
-  )
+  );
 }
