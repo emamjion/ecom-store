@@ -138,8 +138,9 @@ export default function HomePage() {
       </section>
 
       {/* Newsletter Section */}
-      <section className="py-16 bg-primary text-primary-foreground">
-        <div className="container mx-auto px-4 text-center">
+      <section className="relative py-16 bg-[url('/email.jpg')] bg-cover bg-center text-primary-foreground">
+        <div className="absolute inset-0 bg-black/50 z-0"></div>
+        <div className="relative z-10 container mx-auto px-4 text-center">
           <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
           <p className="text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
             Subscribe to our newsletter and be the first to know about new
